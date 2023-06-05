@@ -86,7 +86,7 @@ final class PreferenceStore: PreferenceStoreProtocol {
         set(value: footerPreference, for: .footer)
     }
   }
-
+    
     @Published var summaryBackgroundColorPreference = value(for: .summaryBackgroundColor, defaultValue: .blue) {
     didSet {
         set(value: summaryBackgroundColorPreference, for: .summaryBackgroundColor)
@@ -95,7 +95,7 @@ final class PreferenceStore: PreferenceStoreProtocol {
 
   func resetPreferences() {
     let defaults = UserDefaults.standard
-      PreferenceSetting.allCases.forEach { setting in
+    PreferenceSetting.allCases.forEach { setting in
       defaults.removeObject(forKey: setting.rawValue)
     }
   }
@@ -115,6 +115,6 @@ final class PreferenceStore: PreferenceStoreProtocol {
   }
     
   private func set(value: ColorSelection, for key: PreferenceSetting) {
-      UserDefaults.standard.setValue(value.title, forKey: key.rawValue)
+    UserDefaults.standard.setValue(value.title, forKey: key.rawValue)
   }
 }
